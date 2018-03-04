@@ -1,0 +1,4 @@
+#!/bin/sh
+
+spike pk ./function
+echo $?
