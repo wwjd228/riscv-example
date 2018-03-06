@@ -2,9 +2,9 @@
 	.global insertion_sort
 	.type   insertion_sort, @function
 insertion_sort:
-	addi	sp, sp, -48 # prologue
-	sd	s0, 40(sp)
-	addi	s0, sp, 48
+	addi	sp, sp, -8 # prologue
+	sd	s0, 0(sp)
+	addi	s0, sp, 8
 	addi	a3, a0, 4
 	li	a4, 1
 outer_loop: # for ( int i = 1 ; i < size ; i++ ) {
@@ -27,7 +27,7 @@ exit_inner_loop:
 	addi	a3, a3, 4
 	j	outer_loop
 exit_outer_loop:
-	ld	s0, 40(sp) # epilogue
-	addi	sp, sp, 48
+	ld	s0, 0(sp) # epilogue
+	addi	sp, sp, 8
 	jr	ra
 	.size	insertion_sort, .-insertion_sort

@@ -5,7 +5,7 @@ extern void insertion_sort(int *a, int size);
 
 int main(void)
 {
-    int a[ARRAY_SIZE] = {5, 6, 2, 7, 3, 8, 4, 9, 1, 10};
+    int a[ARRAY_SIZE] = {6, 2, 7, 3, 8, 4, 9, 1, 10, 5};
     insertion_sort(a, ARRAY_SIZE);
 
     printf("%d", a[0]);
