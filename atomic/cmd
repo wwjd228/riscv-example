@@ -1,0 +1,4 @@
+#!/bin/sh
+
+qemu-riscv64 -L /opt/riscv/riscv64-unknown-linux-gnu/ ./atomic
+echo $?
