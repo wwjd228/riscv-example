@@ -8,7 +8,9 @@ lock_mutex:
 	addi		s0, sp, 8
 	li		t0, 1 # load lock value
 again:
-	amoswap.w.aq	t1, t0, (a0)
+	lr.w		t1, (a0)
+	bnez		t1, again
+	sc.w		t1, t0, (a0)
 	bnez		t1, again
 	ld		s0, 0(sp)
 	addi		sp, sp, 8
@@ -22,7 +24,7 @@ unlock_mutex:
 	addi		sp, sp, -8
 	sd		s0, 0(sp)
 	addi		s0, sp, 8
-	amoswap.w.rl	x0, x0, (a0)
+	sw		x0, 0(a0)
 	ld		s0, 0(sp)
 	addi		sp, sp, 8
 	jr		ra
